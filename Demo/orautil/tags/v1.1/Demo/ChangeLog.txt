@@ -1,0 +1,15 @@
+orautil v1.1 
+1. 解决v1.0中出现的问题
+	(1) 所有函数添加inline
+	(2) 去除类中所有静态变量, 静态方法, 连接使用ocilib::Connection
+2. 去除void OracleUtil::Select(), void OracleUtil::Next(), TDataType OracleUtil::Get()函数, 
+   只保留 Dataset OracleUtil::Select()
+
+
+orautil v1.0 : 初版设计, 有问题, 问题如下:
+1. hpp函数没有添加inline, 导致程序中多个地方引入.hpp时, 出现重定义错误
+2. hpp中出现全局静态变量, 导致程序中多个地方引入.hpp时, 出现重定义错误
+3. 使用静态变量连接(程序设计中使用了静态变量连接池Pool),
+   这样会使得用户在程序中只能使用一个数据库, 无法再打开多个不同数据库
+
+
