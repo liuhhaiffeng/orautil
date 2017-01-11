@@ -1,0 +1,52 @@
+orautil v3.1
+1. 经过测试发现, ocilib::Pool, ocilib::Connection可以自动管理连接资源释放,
+故去除 AutoConnection, AutoPool等托管类
+
+orautil v3.0
+结合前面orautil v1.0 ~ v2.1的设计经历, 较为完整的熟悉了ocilib库以及
+其设计结构及使用方式.
+总结: 
+(1) ocilib几乎封装了Oracle数据库操作的所有需求和功能, 没有太多新需求
+(2) ocilib库已经是oci的C++完整封装, 完整支持C++面向对象使用方式, 
+再对其进行全封装会面临以下问题:
+	a. 全封装会做很多重复工作
+	b. 如果只封装一部分功能, 后期如果要扩展功能, 则又会增加新的工作量
+
+鉴于以上经验, 个人认为无需对其进行全封装, 而是针对其有瑕疵, 需要改进
+的地方进行扩展, 即: 放弃全封装, 而是对其进行增强.
+
+因此, orautil v3.0 是ocilib的增强库, 提供若干方便的辅助设计，如:
+(1) SelectOne() 单值查询
+(2) 提供非成员函数, 支持对 ocilib::Date 按小时/分钟/秒进行加减操作
+(3) AutoPool, AutoConnection 自动托管数据库连接资源释放
+(4) 提供ocilib::Date到tim_t的相互转换辅助函数
+以便使用者可以更好的使用ocilib库.
+
+
+orautil v2.1
+1. 在v2.0基础上, ASPConnection增加"绑定Bind"功能
+
+
+orautil v2.0
+封装库重新设计, 封装库包含: ASPConnection, ASPDataset, ASPDate, ASPPool四个类
+1. ASPPool支持连接池
+2. ASPDate替换ocilib::Date, 以便支持对日期按秒进行加减操作及与time_t的转换
+3. 每个类名添加ASP(即: 启望公司ASPPro前缀), 防止与ocilib中的类名冲突
+4. 引入Google Test单元测试库, 对设计库进行单元测试
+
+
+orautil v1.1 
+1. 解决v1.0中出现的问题
+	(1) 所有函数添加inline
+	(2) 去除类中所有静态变量, 静态方法, 连接使用ocilib::Connection
+2. 去除void OracleUtil::Select(), void OracleUtil::Next(), TDataType OracleUtil::Get()函数, 
+   只保留 Dataset OracleUtil::Select()
+
+
+orautil v1.0 : 初版设计, 有问题, 问题如下:
+1. hpp函数没有添加inline, 导致程序中多个地方引入.hpp时, 出现重定义错误
+2. hpp中出现全局静态变量, 导致程序中多个地方引入.hpp时, 出现重定义错误
+3. 使用静态变量连接(程序设计中使用了静态变量连接池Pool),
+   这样会使得用户在程序中只能使用一个数据库, 无法再打开多个不同数据库
+
+
