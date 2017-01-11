@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OraUtilDemo", "OraUtilDemo\OraUtilDemo.vcxproj", "{9E7314C1-16E9-4CB6-9984-BAD7D123A13E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "UnitTest\UnitTest.vcxproj", "{94225D7C-8A1F-4B10-AA21-889C3DE6F2C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E7314C1-16E9-4CB6-9984-BAD7D123A13E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9E7314C1-16E9-4CB6-9984-BAD7D123A13E}.Debug|Win32.Build.0 = Debug|Win32
+		{9E7314C1-16E9-4CB6-9984-BAD7D123A13E}.Release|Win32.ActiveCfg = Release|Win32
+		{9E7314C1-16E9-4CB6-9984-BAD7D123A13E}.Release|Win32.Build.0 = Release|Win32
+		{94225D7C-8A1F-4B10-AA21-889C3DE6F2C9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{94225D7C-8A1F-4B10-AA21-889C3DE6F2C9}.Debug|Win32.Build.0 = Debug|Win32
+		{94225D7C-8A1F-4B10-AA21-889C3DE6F2C9}.Release|Win32.ActiveCfg = Release|Win32
+		{94225D7C-8A1F-4B10-AA21-889C3DE6F2C9}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
